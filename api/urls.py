@@ -5,5 +5,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('accounts.urls')),
-    path('news/', include('news.urls')),
+    path('', include('news.urls')),
 ]

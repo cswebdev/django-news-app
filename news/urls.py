@@ -8,6 +8,6 @@ from .views import ArticleListAPIView, ArticleDetailAPIView
 
 
 urlpatterns = [
-    path('article/<int:pk>', ArticleDetailAPIView.as_view() ),
-     path('article/', ArticleListAPIView.as_view() ),
+    path('articles/<int:pk>', ArticleDetailAPIView.as_view() ),
+     path('articles/', ArticleListAPIView.as_view() ),
 ]
