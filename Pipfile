@@ -4,6 +4,12 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+dj-rest-auth = "~=3.0.0"
+djangorestframework = "~=3.14.0"
+pip = "*"
+install = "*"
+django-allauth = "~=0.52.0"
+pillow = "~=9.4.0"
 
 [dev-packages]
 
