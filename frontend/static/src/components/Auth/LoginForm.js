@@ -2,10 +2,11 @@ import "../styles/App.css";
 import "../styles/LoginStyles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import Cookies from "js-cookie";
 import Button from "react-bootstrap/Button";
 import { Navigate } from "react-router-dom";
-import MainPage from "./MainPage";
+import MainPage from "../App/MainPage";
 
 //props can't be wrapped in {}. LoginForm(props) was changed to LoginForm({ setAuth }),
 
@@ -15,6 +16,9 @@ function LogInForm({ setPage, ...props }) {
       password: "",
       email: "",
    });
+
+   const navigate = useNavigate();
+   const [setAuth] = useOutletContext();
 
    const handleInput = (e) => {
       const { name, value } = e.target;
@@ -56,7 +60,8 @@ function LogInForm({ setPage, ...props }) {
 
       const data = await response.json();
       Cookies.set("Authorization", `Token ${data.key}`);
-      <Navigate to="/MainPage" replace={true} />;
+      setAuth(true);
+      navigate("/home");
    };
 
    return (

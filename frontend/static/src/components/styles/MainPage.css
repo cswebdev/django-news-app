@@ -1,6 +1,7 @@
 .featured {
+
     position: relative;
-    padding: 2rem;
+    padding: 1rem;
 
 
 
@@ -47,4 +48,10 @@
 .featured .card-img-overlay:hover {
     background-color: rgba(0, 0, 0, 0.114);
 
+}
+
+#articleImg {
+    object-fit: cover;
+    width: 100%;
+    max-height: 250px;
 }

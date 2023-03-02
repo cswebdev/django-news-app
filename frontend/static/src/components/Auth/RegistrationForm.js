@@ -1,9 +1,10 @@
 import "../styles/RegistrationStyles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Button from "react-bootstrap/Button";
+import { useNavigate, useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
-import "./App.js";
+import "../App/App.js";
 
 function RegistrationForm({ setAuth, setPage }) {
    const [user, setUser] = useState({
@@ -12,6 +13,8 @@ function RegistrationForm({ setAuth, setPage }) {
       password2: "",
       email: "",
    });
+
+   const navigate = useNavigate();
 
    const [err, setError] = useState(null);
 
@@ -50,7 +53,7 @@ function RegistrationForm({ setAuth, setPage }) {
       ).catch(handleError);
 
       if (response.ok) {
-         setPage("login");
+         navigate("/login");
       }
 
       if (!response.ok) {
@@ -61,7 +64,7 @@ function RegistrationForm({ setAuth, setPage }) {
       const data = await response.json();
       Cookies.set("Authorization", `Token ${data.key}`);
       setAuth(true);
-      setPage("login");
+      navigate("/home");
    };
 
    return (
